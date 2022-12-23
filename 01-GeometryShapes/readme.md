@@ -15,5 +15,5 @@ npm run dev
 npm run build
 ```
 
-# Created by Rushikesh Vinod Ghatage : https://www.linkedin.com/in/rushikesh-ghatage-477489222/
-# Reference by Bruno Simon : https://www.linkedin.com/in/simonbruno77/
+## Created by Rushikesh Vinod Ghatage : https://www.linkedin.com/in/rushikesh-ghatage-477489222/
+## Reference by Bruno Simon : https://www.linkedin.com/in/simonbruno77/
