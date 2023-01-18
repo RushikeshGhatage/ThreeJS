@@ -1,5 +1,6 @@
 # Three.js
-
+#### Created by Rushikesh Vinod Ghatage : https://www.linkedin.com/in/rushikesh-ghatage-477489222/
+#### Reference by Bruno Simon : https://www.linkedin.com/in/simonbruno77/
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
 Run this followed commands:
@@ -15,5 +16,3 @@ npm run dev
 npm run build
 ```
 
-## Created by Rushikesh Vinod Ghatage : https://www.linkedin.com/in/rushikesh-ghatage-477489222/
-## Reference by Bruno Simon : https://www.linkedin.com/in/simonbruno77/

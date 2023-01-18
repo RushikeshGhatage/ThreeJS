@@ -262,11 +262,11 @@ function resize()
 	scene.add(camera);
 
 	controls = new OrbitControls(camera, canvas);
-	controls.enableDamping		= true;
-	controls.autoRotate		= true;
-	controls.rotateSpeed		= 0.75;
-	controls.enableRotate		= true;
-	controls.enableRotateSpeed	= 0.75;
+	controls.enableDamping		=	true;
+	controls.autoRotate			=	true;
+	controls.rotateSpeed		=	0.75;
+	controls.enableRotate		=	true;
+	controls.enableRotateSpeed	=	0.75;
 };
 
 function display()
