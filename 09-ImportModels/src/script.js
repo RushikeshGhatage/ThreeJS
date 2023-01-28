@@ -2,7 +2,6 @@ import './style.css'
 import * as THREE from 'three'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js'
 import { DoubleSide } from 'three';
-import * as dat from 'dat-gui';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 
@@ -35,9 +34,6 @@ const gltfLoader	=	new GLTFLoader();
 
 var	mixer	=	null;
 var	action;
-
-////////////// dat-gui //////////////
-const gui	=	new dat.GUI();
 
 ////////////// Lights //////////////
 var	ambientLight;
