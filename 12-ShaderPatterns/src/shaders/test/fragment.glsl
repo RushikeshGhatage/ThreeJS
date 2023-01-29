@@ -204,7 +204,7 @@ void main()
 	// float strength = 1.0 - abs(cnoise(vUv * 10.0));
 
 	//Pattern 34
-	float strength = sin(cnoise(vUv * 10.0) * 20.0);
+	// float strength = sin(cnoise(vUv * 10.0) * 20.0);
 
 	//Colored Version
 	vec3 blackColor = vec3(0.0);
