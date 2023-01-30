@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+*{
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+	font-family: 'Poppins', sans-serif;
+}
+
+canvas{
+	height: 10vh;
+	width: 10vw;
+}
+
+.mainDiv {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+}
+
+.canvasContainer{
+	width: 100vw !important;
+	height: 100vh!important;
+	display: flex;
+	flex-direction: column;
+}
+
+.canvasContainer__maincanvas{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+h1{
+	width: 100%;
+	display: flex;
+	font-size: 29px;
+	justify-content: center;
+	align-items: center;
+}
+
+.femCentre,
+.hipCentre {
+	accent-color: black;
+}
+
+.radioOpt{
+	height: 15%;
+	width: 100%;
+	padding: 2%;
+}
+
+canvas { 
+	width: 100% !important;
+	height: 100% !important;
+}
+
+#mainLabel {
+	margin-top: 15px;
+	margin-bottom: 50px;
+}
+
+.leftDiv {
+	height: 25vh;
+	width: 22vw;
+	left: 1%;
+	top: 2%;
+	background: #ffffff59;
+	font-size: 11px;
+	padding: 2%;
+	position: absolute;
+	z-index: 1;
+}
+
+label{
+	height: 0px;
+	width: 0px;
+	font-size: 18px;
+	padding-left: 18px;
+}
+
+.btn{
+	height: 40%;
+	margin: 5%;
+	width: 40%;
+}
+
+.btn_container{
+	width: 100%;
+	height: 49%;
+}
