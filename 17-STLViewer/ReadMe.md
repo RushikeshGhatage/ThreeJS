@@ -1,10 +1,9 @@
-# STL (Stereo Lithography) Viewer
+# STL (Stereo Lithography) Viewer :mag_right:
 ## Description
 * Following demo is created using **[ThreeJS](https://threejs.org/)** (3D Javascript Library). :heart: and ReactJS :fire:
 * [STL](https://en.wikipedia.org/wiki/STL_(file_format)) is a file format commonly used for 3D printing and computer-aided design (CAD)
 * Refer **Output.png** file to see output of demo.
 #### Created by [Rushikesh Vinod Ghatage](https://www.linkedin.com/in/rushikesh-ghatage-477489222/) :smiley:
-#### Reference by [Bruno Simon](https://www.linkedin.com/in/simonbruno77/) :crown:
 ## Setup
 #### Download [Node.js](https://nodejs.org/en/download/).
 #### Run following commands:

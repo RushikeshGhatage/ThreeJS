@@ -1,4 +1,4 @@
-# Modified Materials
+# Modified Materials :paintbrush:
 ## Description
 * Following demo is created using **[ThreeJS](https://threejs.org/)** (3D Javascript Library). :heart:
 * Refer **Output.png** file to see output of demo.
