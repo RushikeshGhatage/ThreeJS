@@ -15,7 +15,7 @@ npm start
 npm run build
 ```
 
-## Instructions :
+## Instructions
 * Choose "Femur Centre" radio button, One Landmark will be created. You can reposition your Landmark.
 * Choose "Hip Centre" radio button, Another Landmark will be created. You can reposition your Landmark.
 * Click on "Update" button, One Line will be create between thode two Landmark.
