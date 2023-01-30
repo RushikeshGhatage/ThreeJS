@@ -14,7 +14,7 @@
   ```
 * To run the local server at localhost:8080
   ``` bash
-  npm start
+  npm run dev
   ```
 * To build for production in the directory
   ``` bash
