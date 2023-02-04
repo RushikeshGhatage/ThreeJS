@@ -38,7 +38,9 @@ class CanvasHome extends Component {
 		this.WNDSIZE		=	{ width:0, height: 0};
 
 		this.state	=	{
-
+			bodyColor 	: "#ff0000",
+			detailColor : "#ff0000",
+			glassColor  : "#ffffff"
 		};
 	};
 
@@ -177,7 +179,7 @@ class CanvasHome extends Component {
 		});
 
 		this.detailsMaterial	=	new THREE.MeshStandardMaterial({
-			color	:	0xffffff,
+			color	:	0xff0000,
 			metalness	:	1.0,
 			roughness	:	0.1
 		});
@@ -341,6 +343,9 @@ class CanvasHome extends Component {
 
 		//Code
 		this.bodyMaterial.color.set( event.target.value );
+		this.setState({
+			bodyColor		:	event.target.value
+		});
 	};
 
 	//Handle onIput Details Material
@@ -349,6 +354,9 @@ class CanvasHome extends Component {
 
 		//Code
 		this.detailsMaterial.color.set( event.target.value );
+		this.setState({
+			detailColor	:	event.target.value
+		});
 	};
 
 	//Handle onIput Glass Material
@@ -357,6 +365,9 @@ class CanvasHome extends Component {
 
 		//Code
 		this.glassMaterial.color.set( event.target.value );
+		this.setState({
+			glassColor	:	event.target.value
+		});
 	};
 
 	//Handle onClick Update button
@@ -421,7 +432,7 @@ class CanvasHome extends Component {
 						<input
 							id		=	"body-color"
 							type		=	"color"
-							value	=	"#ff0000"
+							value	=	{this.state.bodyColor}
 							style	=	{
 								{
 									height	:	"25px",
@@ -442,7 +453,7 @@ class CanvasHome extends Component {
 						<input
 							id		=	"details-color"
 							type		=	"color"
-							value	=	"#ff0000"
+							value	=	{this.state.detailColor}
 							style	=	{
 								{
 									height	:	"25px",
@@ -463,7 +474,7 @@ class CanvasHome extends Component {
 						<input
 							id		=	"glass-color"
 							type		=	"color"
-							value	=	"#ffffff"
+							value	=	{this.state.glassColor}
 							style	=	{
 								{
 									height	:	"25px",
