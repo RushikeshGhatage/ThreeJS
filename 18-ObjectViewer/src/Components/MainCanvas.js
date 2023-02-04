@@ -35,12 +35,12 @@ class CanvasHome extends Component {
 		this.model		=	null;
 		this.raycaster		=	null;
 		this.pointer		=	null;
-		this.WNDSIZE		=	{ width:0, height: 0};
+		this.WNDSIZE		=	{ width	:	0, height	:	0};
 
 		this.state	=	{
-			bodyColor 	: "#ff0000",
-			detailColor : "#ff0000",
-			glassColor  : "#ffffff"
+			bodyColor		:	"#ff0000",
+			detailColor	:	"#ff0000",
+			glassColor 	:	"#ffffff"
 		};
 	};
 
@@ -370,25 +370,8 @@ class CanvasHome extends Component {
 		});
 	};
 
-	//Handle onClick Update button
-	handleUpdateBtn = () => {
-		//Local variable declaration
-
-
-		//Code
-		
-	};
-
 	//Handle onPointer event
 	onPointerMove = (event) => {
-		//Local variable declaration
-
-		//Code
-		
-	};
-
-	//Handle onClick Show/Hide button
-	handleShowBtn = () => {
 		//Local variable declaration
 
 		//Code
