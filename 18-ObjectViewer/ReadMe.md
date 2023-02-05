@@ -1,7 +1,8 @@
 # Object Viewer :red_car:
 ## Description
 * Following demo is created using **[ThreeJS](https://threejs.org/)** (3D Javascript Library). :heart: and ReactJS :fire:
-* One of the first sportcars made in Soviet Union, it was approved for mass production, but then the war started, and this car perished like any other great acomplishements of that time.
+* [ZIS-101A Sport (1938)](http://en.sovetcars.ru/zis-101a-sport/) : One of the first sportcars made in Soviet Union, it was approved for mass production, but then the war started, and this car perished like any other great acomplishements of that time.
+* Model by [Enver Dzekoev](https://www.artstation.com/comrade1280) :raised_hands:
 * Refer **Output.png** file to see output of demo.
 #### Created by [Rushikesh Vinod Ghatage](https://www.linkedin.com/in/rushikesh-ghatage-477489222/) :smiley:
 ## Setup
