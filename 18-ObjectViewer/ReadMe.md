@@ -21,6 +21,8 @@
   npm run build
   ```
 ## Instructions
-* Choose **"Body"**, To change Cars main Body Color.
-* Choose **"Details"**, To change Cars Detailed Colors.
-* Choose **"Glass"**, To change Cars Glass Colors.
+* Choose **"Body"**, To change Color of main Body.
+* Choose **"Roof"**, To change Color of Roof.
+* Choose **"Interior"**, To change Color of Interior.
+* Choose **"Details"**, To change Color of Details.
+* Choose **"Glass"**, To change Color of Glass.
