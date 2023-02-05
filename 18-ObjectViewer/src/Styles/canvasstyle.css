@@ -40,10 +40,10 @@ h1{
 }
 
 .inputOpt{
-	margin-left: 10px;
+	margin-left: 37px;
 	height: 15%;
 	width: 100%;
-	padding: 2%;
+	padding: 1%;
 }
 
 canvas { 
@@ -57,12 +57,11 @@ canvas {
 }
 
 .leftDiv {
-	height: 25vh;
+	height: 35vh;
 	width: 22vw;
 	left: 1%;
 	top: 2%;
 	background: #ffffff59;
-	font-size: 11px;
 	padding: 2%;
 	position: absolute;
 	z-index: 1;
@@ -72,7 +71,7 @@ label{
 	color: white;
 	height: 0px;
 	width: 0px;
-	font-size: 26px;
+	font-size: 20px;
 	padding-left: 18px;
 }
 

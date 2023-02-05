@@ -27,6 +27,8 @@ class CanvasHome extends Component {
 		//Variables
 		this.wheels			=	[];
 		this.bodyMaterial		=	null;
+		this.roofMaterial		=	null;
+		this.interiorMaterial	=	null;
 		this.detailsMaterial	=	null;
 		this.glassMaterial		=	null;
 		this.shadow		=	null;
@@ -38,8 +40,10 @@ class CanvasHome extends Component {
 		this.WNDSIZE		=	{ width	:	0, height	:	0};
 
 		this.state	=	{
-			bodyColor		:	"#ff0000",
-			detailColor	:	"#ff0000",
+			bodyColor		:	"#061504",
+			roofColor		:	"#5C615C",
+			interiorColor	:	"#723C18",
+			detailsColor	:	"#020302",
 			glassColor 	:	"#ffffff"
 		};
 	};
@@ -156,7 +160,7 @@ class CanvasHome extends Component {
 
 		//Code
 		//Setup Camera
-		this.camera		=	new THREE.PerspectiveCamera(40 , (this.WNDSIZE.width/this.WNDSIZE.height), 0.1, 100);
+		this.camera		=	new THREE.PerspectiveCamera(40 , (this.WNDSIZE.width/this.WNDSIZE.height), 0.1, 1000);
 		this.camera.position.set(4.25, 1.4, -4.5);
 
 		//Orbit Control
@@ -173,52 +177,74 @@ class CanvasHome extends Component {
 
 		//Code
 		this.bodyMaterial		=	new 	THREE.MeshStandardMaterial({
-			color	:	0xff0000,
-			metalness	:	0.5,
-			roughness	:	0.2
+			color	:	0x061504,
+			metalness	:	0.75,
+			roughness	:	0.1
+		});
+
+		this.roofMaterial		=	new 	THREE.MeshStandardMaterial({
+			color	:	0x5C615C,
+			metalness	:	0.0,
+			roughness	:	1.0
+		});
+
+		this.interiorMaterial	=	new 	THREE.MeshStandardMaterial({
+			color	:	0x723C18,
+			metalness	:	0.2,
+			roughness	:	0.75
 		});
 
 		this.detailsMaterial	=	new THREE.MeshStandardMaterial({
-			color	:	0xff0000,
-			metalness	:	1.0,
-			roughness	:	0.1
+			color	:	0x020302,
+			metalness	:	0.1,
+			roughness	:	0.75,
 		});
 
 		this.glassMaterial	=	new THREE.MeshPhysicalMaterial({
 			color		:	0xffffff,
-			metalness		:	0.25,
+			metalness		:	0.2,
 			roughness		:	0.1,
 			transmission	:	1.0,
 			transparent	:	1.0
 		});
 
 		//Shadow
-		this.shadow	=	new THREE.TextureLoader().load( './static//ferrari_ao.png' );
+		this.shadow	=	new THREE.TextureLoader().load( './static/ferrari_ao.png' );
 
 		dracoLoader.setDecoderPath('./draco/');
 		gltfLoader.setDRACOLoader(dracoLoader);
 		
 		// GLTF LOADER
 		this.model = gltfLoader.load(
-			'./static/ferrari.glb',
+			'./static/vintage_car.glb',
 			(gltf) => {
-				const carModel = gltf.scene.children[ 0 ];
+				const carModel	=	gltf.scene.children[ 0 ];
 
-				carModel.getObjectByName('body').material		=	this.bodyMaterial;
+				//Body Material
+				carModel.getObjectByName('Object001_body01_0').material	=	this.bodyMaterial;
+				carModel.getObjectByName('DoorL_body01_0').material		=	this.bodyMaterial;
+				carModel.getObjectByName('DoorR_body01_0').material		=	this.bodyMaterial;
 
-				carModel.getObjectByName( 'rim_fl' ).material	=	this.detailsMaterial;
-				carModel.getObjectByName( 'rim_fr' ).material	=	this.detailsMaterial;
-				carModel.getObjectByName( 'rim_rr' ).material	=	this.detailsMaterial;
-				carModel.getObjectByName( 'rim_rl' ).material	=	this.detailsMaterial;
-				carModel.getObjectByName( 'trim' ).material		=	this.detailsMaterial;
+				//Roof Material
+				carModel.getObjectByName('roof_roof01_0').material		=	this.roofMaterial;
 
-				carModel.getObjectByName( 'glass' ).material		=	this.glassMaterial;
+				//Interior Material
+				carModel.getObjectByName('interior_intr01_0').material		=	this.interiorMaterial;
+
+				//Details Material
+				carModel.getObjectByName( 'Body_body01_0' ).material		=	this.detailsMaterial;
+
+				//Glass Material
+				carModel.getObjectByName( 'wingshild_Glass_0' ).material	=	this.glassMaterial;
+				carModel.getObjectByName( 'rearGlass_Glass_0' ).material	=	this.glassMaterial;
+				carModel.getObjectByName( 'LightsR_lights01_0' ).material	=	this.glassMaterial;
+				carModel.getObjectByName( 'LightsL_lights01_0' ).material	=	this.glassMaterial;
 
 				this.wheels.push(
-					carModel.getObjectByName( 'wheel_fl' ),
-					carModel.getObjectByName( 'wheel_fr' ),
-					carModel.getObjectByName( 'wheel_rl' ),
-					carModel.getObjectByName( 'wheel_rr' )
+					carModel.getObjectByName( 'FrontWheelR_frwheel01_0' ),
+					carModel.getObjectByName( 'FrontWheelL_frwheel01_0' ),
+					carModel.getObjectByName( 'RearWheelR_rwheel01_0' ),
+					carModel.getObjectByName( 'RearWheelL_rwheel01_0' )
 				);
 
 				// shadow
@@ -232,7 +258,7 @@ class CanvasHome extends Component {
 					})
 				);
 
-				mesh.rotation.x = - Math.PI / 2;
+				mesh.scale.set(38,50,40);
 				mesh.renderOrder = 2;
 				carModel.add( mesh );
 
@@ -254,8 +280,8 @@ class CanvasHome extends Component {
 
 		//Code
 		//Setup Ambient Light
-		this.light = new THREE.AmbientLight(0xffffff, 0.25);
-		// this.scene.add(this.light);
+		this.light = new THREE.AmbientLight(0xffffff, 0.5);
+		this.scene.add(this.light);
 	};	
 
 	//Setting up raycaster
@@ -325,11 +351,11 @@ class CanvasHome extends Component {
 
 		//Rotate Wheels
 		for ( let i = 0; i < this.wheels.length; i ++ ) {
-			this.wheels[ i ].rotation.x = this.time * Math.PI * 2;
+			this.wheels[ i ].rotation.x = -(this.time * Math.PI * 2);
 		}
 
 		//Move Grid
-		this.grid.position.z = - ( this.time ) % 1;
+		this.grid.position.z = -(this.time) % 1;
 
 		this.orbitControls.update();
 		this.renderScene();
@@ -337,7 +363,7 @@ class CanvasHome extends Component {
 		this.frameId = window.requestAnimationFrame(this.update);
 	};
 
-	//Handle onIput Body Material
+	//Handle onInput Body Material
 	handleBodyMaterial = (event) => {
 		//Local variable declaration
 
@@ -348,6 +374,28 @@ class CanvasHome extends Component {
 		});
 	};
 
+	//Handle onInput Roof Material
+	handleRoofMaterial = (event) => {
+		//Local variable declaration
+
+		//Code
+		this.roofMaterial.color.set( event.target.value );
+		this.setState({
+			roofColor		:	event.target.value
+		});
+	};
+
+	//Handle onInput Interior Material
+	handleInteriorMaterial = (event) => {
+		//Local variable declaration
+
+		//Code
+		this.interiorMaterial.color.set( event.target.value );
+		this.setState({
+			interiorColor		:	event.target.value
+		});
+	};
+
 	//Handle onIput Details Material
 	handleDetailsMaterial = (event) => {
 		//Local variable declaration
@@ -355,7 +403,7 @@ class CanvasHome extends Component {
 		//Code
 		this.detailsMaterial.color.set( event.target.value );
 		this.setState({
-			detailColor	:	event.target.value
+			detailsColor	:	event.target.value
 		});
 	};
 
@@ -430,13 +478,55 @@ class CanvasHome extends Component {
 						{/* Label */}
 						<label><b>Body</b></label>
 					</div>
+
+					{/* Input Option */}
+					<div className='inputOpt'>
+						<input
+							id		=	"roof-color"
+							type		=	"color"
+							value	=	{this.state.roofColor}
+							style	=	{
+								{
+									height	:	"25px",
+									width	:	"35px",
+									cursor	:	"pointer"
+								}
+							}
+							onInput={(event) => {
+								this.handleRoofMaterial(event);
+							}}/>
+
+						{/* Label */}
+						<label><b>Roof</b></label>
+					</div>
+
+					{/* Input Option */}
+					<div className='inputOpt'>
+						<input
+							id		=	"interior-color"
+							type		=	"color"
+							value	=	{this.state.interiorColor}
+							style	=	{
+								{
+									height	:	"25px",
+									width	:	"35px",
+									cursor	:	"pointer"
+								}
+							}
+							onInput={(event) => {
+								this.handleInteriorMaterial(event);
+							}}/>
+
+						{/* Label */}
+						<label><b>Interior</b></label>
+					</div>
 			
 					{/* Input Option */}
 					<div className='inputOpt'>
 						<input
 							id		=	"details-color"
 							type		=	"color"
-							value	=	{this.state.detailColor}
+							value	=	{this.state.detailsColor}
 							style	=	{
 								{
 									height	:	"25px",
